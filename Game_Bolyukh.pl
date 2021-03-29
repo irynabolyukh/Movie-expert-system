@@ -1,18 +1,18 @@
 /** Назва, Рік випуску, жанр1, жанр2, країна, головний герой-актор, рейтинг*/
 
-movie('Dr1', 1999,'drama', 'others',  108,'USA','Hanks',8.7).
+movie('Dr1', 1999,'drama', 'others',  108,'usa','hanks',8.7).
 
-movie('Cm1', 1984, 'comedy', 'others', 198, 'Poland', 'Depp', 7.9).
+movie('Cm1', 1984, 'comedy', 'others', 198, 'poland', 'depp', 7.9).
 
-movie('Adv1', 2001, 'adventure', 'fantasy', 128, 'Ukraine', 'Wood', 8.1).
+movie('Adv1', 2001, 'adventure', 'fantasy', 128, 'ukraine', 'wood', 8.1).
 
-movie('Th1c', 1991, 'thriller', 'others', 113, 'USA', 'Hopkins', 8.2).
+movie('Th1c', 1991, 'thriller', 'others', 113, 'usa', 'hopkins', 8.2).
 
-movie('An1', 2001, 'animation', 'family', 30, 'USA', 'Myers', 7.8).
+movie('An1', 2001, 'animation', 'family', 30, 'usa', 'myers', 7.8).
 
-movie('Rm1', 1960, 'romance', 'others', 117, 'USA', 'Burton', 7.5).
+movie('Rm1', 1960, 'romance', 'others', 117, 'usa', 'burton', 7.5).
 
-movie('Hr1', 1980, 'horror', 'psychopaths', 146, 'USA', 'Roberts', 7.9).
+movie('Hr1', 1980, 'horror', 'psychopaths', 146, 'usa', 'roberts', 7.9).
 
 
 start(MovieName) :-	
@@ -22,6 +22,7 @@ start(MovieName) :-
 				write('   What is your gender?'),nl,
 				write('1. male'),nl,
 				write('2. female'),nl,
+				write('Type 1-2: '),
 				read(Sex),nl,
 
 				write('   How do you feel now?'),nl,
@@ -29,19 +30,21 @@ start(MovieName) :-
 				write('2. happy'),nl,
 				write('3. angry'),nl,
 				write('4. normal'),nl,
+				write('Type 1-4: '),
 				read(Mood),nl,
 				
 	      write('What decade do you prefer?'),nl,
-				write('1. 2010'),nl,
-				write('2. 2000'),nl,
-				write('3. 1990'),nl,
-				write('4. 1980'),nl,
-				write('5. 1970'),nl,
-				write('6. 1960'),nl,
-				write('7. skip'),nl,
+				write('* 2010'),nl,
+				write('* 2000'),nl,
+				write('* 1990'),nl,
+				write('* 1980'),nl,
+				write('* 1970'),nl,
+				write('* 1960'),nl,
+				write('* skip'),nl,
+				write('Type selected year: '),
         read(Decade),nl,
 		
-				write('Choose prefered genre:'),nl,
+				write('Genre'),nl,
         write('According to your previous answers we would recommend you to choose:  '),
 				basedOnMood(Sex, Mood, Res),
 				write(Res),nl,nl,
@@ -52,13 +55,15 @@ start(MovieName) :-
 				write('5. romance'),nl,
 				write('6. thriller'),nl,
 				write('7. adventure'),nl,
-				write('8. others'),nl,
+				write('8. others'),nl,		
+				write('Type prefered genre: '),
 				read(Genre),nl,
 
-		  	write('How much time do you have?'),nl,
+		  	write('How much time do you have? (1-2)'),nl,
 				write('1. little'),nl,
 				write('2. lots'),nl,
-				read(Time),nl, (Time == 'lots' -> write('How many hours exactly? '),nl,
+				write('Type 1-2: '),
+				read(Time),nl, (Time == 2 -> write('How many hours exactly? '),nl,
 			          	     read(TimeExact),nl,
 											 (TimeExact < 3 -> Duration = 'm'; Duration = 'l');
 											  Duration = 's'),nl,
@@ -66,35 +71,41 @@ start(MovieName) :-
 				write('Do you have favourite actor?'),nl,
 				write('1. yes'),nl,
 				write('2. no'),nl,
-				read(Ans1),nl, (Ans1 == 'yes' -> write('What is actors lastname? '),nl,
-			          	     Ans1 == 'yes' -> read(Actor); Actor = 'skip'),nl,
+				write('Type 1-2: '),
+				read(Ans1),nl, (Ans1 == 1 -> write('What is actors lastname? '),nl,
+			          	     Ans1 == 1 -> read(Actor); Actor = 'skip'),nl,
 
 				write('Movies of what country do you prefer?'),nl,
-				write('1. USA'),nl,
-				write('2. Japan'),nl,
-				write('3. France'),nl,
-				write('4. Great Britain'),nl,
+				write('1. usa'),nl,
+				write('2. japan'),nl,
+				write('3. france'),nl,
+				write('4. great britain'),nl,
 				write('5. skip'),nl,
+				write('Type prefered country: '),
 				read(Country),nl,
 
 			write('What imdb rating is good enough for you?(1-10)'),nl,
 			read(Rate),nl,(search(MovieName,Decade,Genre,Duration,Rate,Country,Actor); 
 
 					write('No such movie found in our database. Please reduce one of your preferences.'),nl,
-						write('What can we neglect? '),nl,nl,
+						write('What can we neglect? (1-3) '),nl,nl,
 						% (Decade \= 'skip' -> write('* decade')),
-						write('* decade'),nl,write('* duration'),nl,write('* imdb'),nl,nl,
-						read(Ignore1),nl,(Ignore1 == 'decade' -> searchWoYear(MovieName,Genre,Duration,Rate,Country,Actor);
-												    (Ignore1 == 'duration' -> searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor); 
+						write('1. decade'),nl,write('2. duration'),nl,write('3. imdb'),nl,nl,
+						write('Type 1-3: '),
+						read(Ignore1),nl,(Ignore1 == 1 -> searchWoYear(MovieName,Genre,Duration,Rate,Country,Actor);
+												    (Ignore1 == 2 -> searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor); 
 												    searchWoImdb(MovieName,Decade,Genre,Duration,Country,Actor))); 
-														write('What else can we neglect? '),nl,nl,
+														write('What else can we neglect? (1-6) '),nl,nl,
 														% (Country \= 'skip' -> write('* country')),nl,(Actor \= 'skip' -> write('* actor')),nl,nl,
-														write('* country'),nl,write('* actor'),nl,nl,
-														read(Ignore2),nl,((Ignore1 == 'year', Ignore2 == 'country') -> searchWoYearCountry(MovieName,Genre,Duration,Rate,Actor);
-														                (Ignore1 == 'year', Ignore2 == 'actor') -> searchWoYearActor(MovieName,Genre,Duration,Rate,Country);
-																						(Ignore1 == 'duration', Ignore2 == 'country') -> searchWoDurationCountry(MovieName,Decade,Genre,Rate,Actor);
-														                (Ignore1 == 'duration', Ignore2 == 'actor') -> searchWoDurationActor(MovieName,Decade,Genre,Rate,Country);
-																						((Ignore1 == 'imdb', Ignore2 == 'country') -> searchWoImdbCountry(MovieName,Decade,Genre,Duration,Actor);
+														write('1. decade, country'),nl,write('2. decade, actor'),nl,
+														write('3. duration, country'),nl,write('4. duration, actor'),nl,
+														write('5. imdb, country'),nl,	write('6. imdb, actor'),nl,nl,
+														write('Type 1-6: '),
+														read(Ignore2),nl,(Ignore2 == 1 -> searchWoYearCountry(MovieName,Genre,Duration,Rate,Actor);
+														                Ignore2 == 2 -> searchWoYearActor(MovieName,Genre,Duration,Rate,Country);
+																						Ignore2 == 3 -> searchWoDurationCountry(MovieName,Decade,Genre,Rate,Actor);
+														                Ignore2 == 4 -> searchWoDurationActor(MovieName,Decade,Genre,Rate,Country);
+																						(Ignore2 == 5 -> searchWoImdbCountry(MovieName,Decade,Genre,Duration,Actor);
 																						searchWoImdbActor(MovieName,Decade,Genre,Duration,Country))); 
 																						nl,defaultSelected(MovieName,Genre)),
 
@@ -108,12 +119,12 @@ country(MovieName,Country):- movie(MovieName,_,_,_,_,Country,_,_).
 year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year < Y, Year1 is Year + 10, Y < Year1.
 genre(MovieName,Genre):- movie(MovieName,_,G1,G2,_,_,_,_), (G1 == Genre; G2 == Genre).
 
-basedOnMood('female', 'happy', 'comedy, adventure, romance'). 
-basedOnMood(X, 'sad', 'drama, animation'):- (X == 'female'; X == 'male'). 
-basedOnMood(X, 'angry', 'horror, thriller'):- (X == 'female'; X == 'male'). 
-basedOnMood('female', 'normal', 'adventure, romance').
-basedOnMood('male', 'happy', 'comedy, adventure, thriller').
-basedOnMood('male', 'normal', 'adventure, animation, thriller').
+basedOnMood(2, 2, 'comedy, adventure, romance'). 
+basedOnMood(X, 1, 'drama, animation'):- (X == 2; X == 1). 
+basedOnMood(X, 3, 'horror, thriller'):- (X == 2; X == 1). 
+basedOnMood(2, 4, 'adventure, romance').
+basedOnMood(1, 2, 'comedy, adventure, thriller').
+basedOnMood(1, 4, 'adventure, animation, thriller').
 
 duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 20 < Minutes, Minutes < 60.
 duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 61 < Minutes, Minutes < 150.
