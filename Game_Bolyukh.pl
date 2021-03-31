@@ -1,18 +1,13 @@
 /** Назва, Рік випуску, жанр1, жанр2, країна, головний герой-актор, рейтинг*/
 
-movie('Dr1', 1999,'drama', 'others',  108,'usa','hanks',8.7).
-
-movie('Cm1', 1984, 'comedy', 'others', 198, 'poland', 'depp', 7.9).
-
-movie('Adv1', 2001, 'adventure', 'fantasy', 128, 'ukraine', 'wood', 8.1).
-
-movie('Th1c', 1991, 'thriller', 'others', 113, 'usa', 'hopkins', 8.2).
-
-movie('An1', 2001, 'animation', 'family', 30, 'usa', 'myers', 7.8).
-
-movie('Rm1', 1960, 'romance', 'others', 117, 'usa', 'burton', 7.5).
-
-movie('Hr1', 1980, 'horror', 'psychopaths', 146, 'usa', 'roberts', 7.9).
+movie('Parasite', 2019, 'comedy', 'drama', 132, 'usa', 'song', 8.6).
+movie('Titanic', 1997, 'drama', 'romance', 194, 'uk', 'dicaprio', 7.8).
+movie('Casablanca', 1942, 'drama', 'romance', 102, 'usa', 'bogart', 8.5).
+movie('Spirited Away', 2001, 'animation', 'adventure', 125, 'japan', 'chase', 8.6).
+movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6.9)
+movie('Dilwale Dulhania Le Jayenge', 1995, 'romance', 'others', 189, 'india', 'khan', 8.1).
+movie('Scream', 1996, 'horror', 'mystery', 101, 'uk', 'campbell', 7.3).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', 7.2).
 
 
 start(MovieName) :-	
