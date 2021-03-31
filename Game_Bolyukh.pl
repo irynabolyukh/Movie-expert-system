@@ -44,7 +44,6 @@ start(MovieName) :-
 				write('Type selected year: '),
         read(Decade),nl,
 		
-				write('Genre'),nl,
         write('According to your previous answers we would recommend you to choose:  '),
 				basedOnMood(Sex, Mood, Res),
 				write(Res),nl,nl,
@@ -209,5 +208,3 @@ searchWoImdbCountry(MovieName,Decade,Genre,Hours,Actor):-
                         (Actor == 'skip'; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
 												duration(MovieName,Hours), !.
-
-
