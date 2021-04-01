@@ -1,10 +1,8 @@
-/** Назва, Рік випуску, жанр1, жанр2, країна, головний герой-актор, рейтинг*/
-
 movie('Parasite', 2019, 'comedy', 'drama', 132, 'usa', 'song', 8.6).
 movie('Titanic', 1997, 'drama', 'romance', 194, 'uk', 'dicaprio', 7.8).
 movie('Casablanca', 1942, 'drama', 'romance', 102, 'usa', 'bogart', 8.5).
 movie('Spirited Away', 2001, 'animation', 'adventure', 125, 'japan', 'chase', 8.6).
-movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6.9)
+movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6.9).
 movie('Dilwale Dulhania Le Jayenge', 1995, 'romance', 'others', 189, 'india', 'khan', 8.1).
 movie('Scream', 1996, 'horror', 'mystery', 101, 'uk', 'campbell', 7.3).
 movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', 7.2).
@@ -37,19 +35,20 @@ start(MovieName) :-
 				write('* 1960'),nl,
 				write('* skip'),nl,
 				write('Type selected year: '),
-        read(Decade),nl,
-		
+        read(Age),nl,
+				(Age == 'skip' -> Decade = 1; Decade = Age),
+
         write('According to your previous answers we would recommend you to choose:  '),
 				basedOnMood(Sex, Mood, Res),
 				write(Res),nl,nl,
-				write('1. animation'),nl,
-				write('2. drama'),nl,
-				write('3. horror'),nl,
-				write('4. comedy'),nl,
-				write('5. romance'),nl,
-				write('6. thriller'),nl,
-				write('7. adventure'),nl,
-				write('8. others'),nl,		
+				write('* animation'),nl,
+				write('* drama'),nl,
+				write('* horror'),nl,
+				write('* comedy'),nl,
+				write('* romance'),nl,
+				write('* thriller'),nl,
+				write('* adventure'),nl,
+				write('* others'),nl,		
 				write('Type prefered genre: '),
 				read(Genre),nl,
 
@@ -70,11 +69,11 @@ start(MovieName) :-
 			          	     Ans1 == 1 -> read(Actor); Actor = 'skip'),nl,
 
 				write('Movies of what country do you prefer?'),nl,
-				write('1. usa'),nl,
-				write('2. japan'),nl,
-				write('3. france'),nl,
-				write('4. great britain'),nl,
-				write('5. skip'),nl,
+				write('* usa'),nl,
+				write('* japan'),nl,
+				write('* france'),nl,
+				write('* uk'),nl,
+				write('* skip'),nl,
 				write('Type prefered country: '),
 				read(Country),nl,
 
@@ -83,14 +82,12 @@ start(MovieName) :-
 
 					write('No such movie found in our database. Please reduce one of your preferences.'),nl,
 						write('What can we neglect? (1-3) '),nl,nl,
-						% (Decade \= 'skip' -> write('* decade')),
 						write('1. decade'),nl,write('2. duration'),nl,write('3. imdb'),nl,nl,
 						write('Type 1-3: '),
 						read(Ignore1),nl,(Ignore1 == 1 -> searchWoYear(MovieName,Genre,Duration,Rate,Country,Actor);
 												    (Ignore1 == 2 -> searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor); 
 												    searchWoImdb(MovieName,Decade,Genre,Duration,Country,Actor))); 
 														write('What else can we neglect? (1-6) '),nl,nl,
-														% (Country \= 'skip' -> write('* country')),nl,(Actor \= 'skip' -> write('* actor')),nl,nl,
 														write('1. decade, country'),nl,write('2. decade, actor'),nl,
 														write('3. duration, country'),nl,write('4. duration, actor'),nl,
 														write('5. imdb, country'),nl,	write('6. imdb, actor'),nl,nl,
@@ -126,7 +123,7 @@ duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 151 < Minutes.
 
 
 search(MovieName,Decade,Genre,Hours,Rate,Country,Actor):-
-				(Decade == 'skip',!; year(MovieName,Decade)),
+				(Decade == 1,!; year(MovieName,Decade)),
 				(Country == 'skip',!; country(MovieName,Country)),
 				(Actor == 'skip',!; actor(MovieName,Actor)),
 				genre(MovieName,Genre),
@@ -134,26 +131,27 @@ search(MovieName,Decade,Genre,Hours,Rate,Country,Actor):-
 				duration(MovieName,Hours), !.
 
 defaultSelected(MovieName,Genre):-genre(MovieName, Genre).
+defaultSelected(MovieName,_):-movie(MovieName,_,_,_,_,_,_,_).
 
 
 % Search for movie without considering year
 searchWoYear(MovieName,Genre,Hours,Rate,Country,Actor):-
-	                      (Country == 'skip'; country(MovieName,Country)),
-	                      (Actor == 'skip'; actor(MovieName,Actor)),
+	                      (Country == 'skip',!; country(MovieName,Country)),
+	                      (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
                         imdb(MovieName,Rate),
 												duration(MovieName,Hours), !.
 
 % Search for movie without considering year	& country		 				
 searchWoYearCountry(MovieName,Genre,Hours,Rate,Actor):-
-	                      (Actor == 'skip'; actor(MovieName,Actor)),
+	                      (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
                         imdb(MovieName,Rate),
 												duration(MovieName,Hours), !.
 
 % Search for movie without considering year & actor
 searchWoYearActor(MovieName,Genre,Hours,Rate,Country):-
-	                      (Country == 'skip'; country(MovieName,Country)),
+	                      (Country == 'skip',!; country(MovieName,Country)),
                         genre(MovieName,Genre),
                         imdb(MovieName,Rate),
 												duration(MovieName,Hours), !.
@@ -161,45 +159,45 @@ searchWoYearActor(MovieName,Genre,Hours,Rate,Country):-
 
 % Search for movie without considering duration
 searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor):- 
-	                      (Decade == 'skip'; year(MovieName,Decade)),
-                        (Country == 'skip'; country(MovieName,Country)),
-                        (Actor == 'skip'; actor(MovieName,Actor)),
+	                      (Decade == 1,!; year(MovieName,Decade)),
+                        (Country == 'skip',!; country(MovieName,Country)),
+                        (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
 												imdb(MovieName,Rate), !.
 
 % Search for movie without considering duration & country
 searchWoDurationCountry(MovieName,Decade,Genre,Rate,Actor):- 
-	                      (Decade == 'skip'; year(MovieName,Decade)),
-                        (Actor == 'skip'; actor(MovieName,Actor)),
+	                      (Decade == 1,!; year(MovieName,Decade)),
+                        (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
 												imdb(MovieName,Rate), !.
 
 % Search for movie without considering duration & actor
 searchWoDurationActor(MovieName,Decade,Genre,Rate,Country):- 
-	                      (Decade == 'skip'; year(MovieName,Decade)),
-                        (Country == 'skip'; country(MovieName,Country)),
+	                      (Decade == 1,!; year(MovieName,Decade)),
+                        (Country == 'skip',!; country(MovieName,Country)),
                         genre(MovieName,Genre),
 												imdb(MovieName,Rate), !.
 
 
 % Search for movie without considering imdb
 searchWoImdb(MovieName,Decade,Genre,Hours,Country,Actor):-
-                        (Decade == 'skip'; year(MovieName,Decade)),
-                        (Country == 'skip'; country(MovieName,Country)),
-                        (Actor == 'skip'; actor(MovieName,Actor)),
+                        (Decade == 1,!; year(MovieName,Decade)),
+                        (Country == 'skip',!; country(MovieName,Country)),
+                        (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
 												duration(MovieName,Hours), !.
 
 % Search for movie without considering imdb & actor
 searchWoImdbActor(MovieName,Decade,Genre,Hours,Country):-
-                        (Decade == 'skip'; year(MovieName,Decade)),
-                        (Country == 'skip'; country(MovieName,Country)),
+                        (Decade == 1,!; year(MovieName,Decade)),
+                        (Country == 'skip',!; country(MovieName,Country)),
                         genre(MovieName,Genre),
 												duration(MovieName,Hours), !.
 
 % Search for movie without considering imdb & country
 searchWoImdbCountry(MovieName,Decade,Genre,Hours,Actor):-
-                        (Decade == 'skip'; year(MovieName,Decade)),
-                        (Actor == 'skip'; actor(MovieName,Actor)),
+                        (Decade == 1,!; year(MovieName,Decade)),
+                        (Actor == 'skip',!; actor(MovieName,Actor)),
                         genre(MovieName,Genre),
 												duration(MovieName,Hours), !.
