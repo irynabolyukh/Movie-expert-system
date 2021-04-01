@@ -6,6 +6,52 @@ movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6
 movie('Dilwale Dulhania Le Jayenge', 1995, 'romance', 'others', 189, 'india', 'khan', 8.1).
 movie('Scream', 1996, 'horror', 'mystery', 101, 'uk', 'campbell', 7.3).
 movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', 7.2).
+movie('Slumdog Millionaire', 2008, 'drama', 'romance', 120, 'uk', 'patel', 8.0).
+movie('Boyz n The Hood', 1991, 'crime', 'drama', 112, 'uk', 'fishburne', 7.8).
+
+movie('Lost In Translation', 2003, 'comedy', 'drama', 102, 'uk', 'murray', 7.7).
+movie('Rebel Without a Cause', 1955, 'drama', 'others', 111, 'usa', 'dean', 7.7).
+movie('Y Tu Mamá También', 2001, 'drama', 'others', 106, 'uk', 'garcia', 7.6).
+movie('The Grand Budapest Hotel', 2014, 'adventure', 'comedy', 99, 'uk', 'fiennes', 8.1).
+movie('Carmen Jones', 1954, 'musical', 'romance', 105, 'uk', 'belafonte', 6.8).
+movie('Daughters of the Dust', 1978, 'history', 'drama', 112, 'uk', 'rogers', 6.6).
+movie('Butch Cassidy and the Sundance Kid', 1969, 'biography', 'crime', 110, 'uk', 'redford', 8.0).
+movie('Coming to America', 1988, 'comedy', 'romance', 117, 'uk', 'murphy', 7.1).
+movie('Rocky', 1978, 'sport', 'drama', 120, 'uk', 'stallone', 8.1).
+movie('Schindlers List ', 1993, 'biography', 'history', 195, 'uk', 'neeson', 8.9).
+
+movie('The Shining', 1980, 'horror', 'drama', 146, 'uk', 'duvall', 8.4).
+movie('Annihilation', 2018, 'adventure', 'horror', 115, 'uk', 'portman', 6.8).
+movie('Dead Poets Society', 1989, 'comedy', 'drama', 128, 'uk', 'hawke', 8.1).
+movie('Jurassic Park', 1993, 'action', 'scifi', 127, 'uk', 'dern', 8.1).
+movie('Call Me By Your Name', 2017, 'drama', 'romance', 132, 'uk', 'chalamet', 7.9).
+movie('Roman Holiday', 1953, 'comedy', 'romance', 118, 'usa', 'hepburn', 8.0).
+movie('His Girl Friday', 1940, 'comedy', 'romance', 92, 'uk', 'grant', 7.9).
+movie('Carrie', 1976, 'horror', 'others', 98, 'uk', 'spacek', 7.4).
+movie('To Kill a Mockingbird', 1962, 'crime', 'drama', 129, 'uk', 'megna', 8.2).
+movie('The Sound of Music', 1965, 'biography', 'family', 110, 'uk', 'plummer', 8.0).
+
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
 
 
 start(MovieName) :-	
@@ -33,6 +79,7 @@ start(MovieName) :-
 				write('* 1980'),nl,
 				write('* 1970'),nl,
 				write('* 1960'),nl,
+				write('* 1950'),nl,
 				write('* skip'),nl,
 				write('Type selected year: '),
         read(Age),nl,
@@ -107,7 +154,7 @@ start(MovieName) :-
 imdb(MovieName,Rating):- movie(MovieName,_,_,_,_,_,_,R), Rating < R.
 actor(MovieName,Actor):- movie(MovieName,_,_,_,_,_,Actor,_).
 country(MovieName,Country):- movie(MovieName,_,_,_,_,Country,_,_).
-year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year < Y, Year1 is Year + 10, Y < Year1.
+year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year <= Y, Year1 is Year + 10, Y < Year1.
 genre(MovieName,Genre):- movie(MovieName,_,G1,G2,_,_,_,_), (G1 == Genre; G2 == Genre).
 
 duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 20 < Minutes, Minutes < 60.
