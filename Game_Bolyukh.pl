@@ -6,14 +6,12 @@ movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6
 movie('Dilwale Dulhania Le Jayenge', 1995, 'romance', 'others', 189, 'india', 'khan', 8.1).
 movie('Scream', 1996, 'horror', 'mystery', 101, 'uk', 'campbell', 7.3).
 movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', 7.2).
-movie('Slumdog Millionaire', 2008, 'drama', 'romance', 120, 'uk', 'patel', 8.0).
-movie('Boyz n The Hood', 1991, 'crime', 'drama', 112, 'uk', 'fishburne', 7.8).
 
 movie('Lost In Translation', 2003, 'comedy', 'drama', 102, 'uk', 'murray', 7.7).
 movie('Rebel Without a Cause', 1955, 'drama', 'others', 111, 'usa', 'dean', 7.7).
 movie('Y Tu Mamá También', 2001, 'drama', 'others', 106, 'uk', 'garcia', 7.6).
 movie('The Grand Budapest Hotel', 2014, 'adventure', 'comedy', 99, 'uk', 'fiennes', 8.1).
-movie('Carmen Jones', 1954, 'musical', 'romance', 105, 'uk', 'belafonte', 6.8).
+movie('Carmen Jones', 1954, 'music', 'romance', 105, 'uk', 'belafonte', 6.8).
 movie('Daughters of the Dust', 1978, 'history', 'drama', 112, 'uk', 'rogers', 6.6).
 movie('Butch Cassidy and the Sundance Kid', 1969, 'biography', 'crime', 110, 'uk', 'redford', 8.0).
 movie('Coming to America', 1988, 'comedy', 'romance', 117, 'uk', 'murphy', 7.1).
@@ -31,27 +29,27 @@ movie('Carrie', 1976, 'horror', 'others', 98, 'uk', 'spacek', 7.4).
 movie('To Kill a Mockingbird', 1962, 'crime', 'drama', 129, 'uk', 'megna', 8.2).
 movie('The Sound of Music', 1965, 'biography', 'family', 110, 'uk', 'plummer', 8.0).
 
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('Her', 2013, 'romance', 'scifi', 126, 'uk', 'phoenix', 8.0).
+movie('12 Angry Men', 1957, 'crime', 'drama', 96, 'usa', 'fonda', 9.0).
+movie('Mean Girls', 2004, 'comedy', 'others', 97, 'uk', 'lohan', 7.0).
+movie('Little Women', 2019, 'drama', 'romance', 135, 'uk', 'watson', 7.8).
+movie('Do the Right Thing', 1989, 'comedy', 'drama', 120, 'uk', 'davis', 8.0).
+movie('In the Mood for Love', 2000, 'drama', 'romance', 98, 'japan', 'cheung', 8.1).
+movie('A Star Is Born', 2018, 'music', 'romance', 126, 'uk', 'gaga', 7.6).
+movie('The Matrix', 1999, 'action', 'scifi', 136, 'uk', 'reeves', 8.7).
+movie('Rear Window', 1954, 'mystery', 'thriller', 112, 'uk', 'corey', 8.4).
+movie('The Truman Show', 1998, 'comedy', 'drama', 103, 'uk', 'carrey', 8.1).
 
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', fffgf).
+movie('The Graduate', 1967, 'comedy', 'drama', 106, 'uk', 'hoffman', 8.0).
+movie('Clueless', 1995, 'comedy', 'romance', 110, 'uk', 'silverstone', 6.8).
+movie('Heathers', 1989, 'comedy', 'crime', 103, 'uk', 'ryder', 7.2).
+movie('Blue Velvet', 1986, 'mystery', 'thriller', 120, 'uk', 'maclachlan', 7.7).
+movie('Back to the Future', 1985, 'adventure', 'scifi', 116, 'uk', 'fox', 8.5).
+movie('Apocalypse Now', 1979, 'mystery', 'drama', 147, 'uk', 'brando', 8.4).
+movie('The Rocky Horror Picture Show', 1975, 'music', 'comedy', 100, 'italy', 'curry', 7.4).
+movie('2001: A Space Odyssey', 1968, 'adventure', 'scifi', 149, 'uk', 'lockwood', 8.3).
+movie('Some Like it Hot', 1959, 'music', 'comedy', 121, 'usa', 'monroe', 8.2).
+movie('1776', 1972, 'family', 'history', 141, 'uk', 'daniels', 7.6).
 
 
 start(MovieName) :-	
@@ -71,19 +69,6 @@ start(MovieName) :-
 				write('4. normal'),nl,
 				write('Type 1-4: '),
 				read(Mood),nl,
-				
-	      write('What decade do you prefer?'),nl,
-				write('* 2010'),nl,
-				write('* 2000'),nl,
-				write('* 1990'),nl,
-				write('* 1980'),nl,
-				write('* 1970'),nl,
-				write('* 1960'),nl,
-				write('* 1950'),nl,
-				write('* skip'),nl,
-				write('Type selected year: '),
-        read(Age),nl,
-				(Age == 'skip' -> Decade = 1; Decade = Age),
 
         write('According to your previous answers we would recommend you to choose:  '),
 				basedOnMood(Sex, Mood, Res),
@@ -98,6 +83,18 @@ start(MovieName) :-
 				write('* others'),nl,		
 				write('Type prefered genre: '),
 				read(Genre),nl,
+				
+	      write('What decade do you prefer?'),nl,
+				write('* 2010'),nl,
+				write('* 2000'),nl,
+				write('* 1990'),nl,
+				write('* 1980'),nl,
+				write('* 1970'),nl,
+				write('* 1960'),nl,
+				write('* skip'),nl,
+				write('Type selected year: '),
+        read(Age),nl,
+				(Age == 'skip' -> Decade = 1; Decade = Age),
 
 		  	write('How much time do you have? (1-2)'),nl,
 				write('1. little'),nl,
@@ -154,12 +151,12 @@ start(MovieName) :-
 imdb(MovieName,Rating):- movie(MovieName,_,_,_,_,_,_,R), Rating < R.
 actor(MovieName,Actor):- movie(MovieName,_,_,_,_,_,Actor,_).
 country(MovieName,Country):- movie(MovieName,_,_,_,_,Country,_,_).
-year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year <= Y, Year1 is Year + 10, Y < Year1.
+year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year < Y, Year1 is Year + 10, Y < Year1.
 genre(MovieName,Genre):- movie(MovieName,_,G1,G2,_,_,_,_), (G1 == Genre; G2 == Genre).
 
-duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 20 < Minutes, Minutes < 60.
-duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 61 < Minutes, Minutes < 150.
-duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 151 < Minutes.
+duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 20 < Minutes, Minutes < 100.
+duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 100 < Minutes, Minutes < 170.
+duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 171 < Minutes.
 
 basedOnMood(2, 2, 'comedy, adventure, romance'). 
 basedOnMood(X, 1, 'drama, animation'):- (X == 2; X == 1). 
