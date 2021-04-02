@@ -5,7 +5,7 @@ movie('Spirited Away', 2001, 'animation', 'adventure', 125, 'japan', 'chase', 8.
 movie('The Devil Wears Prada', 2006, 'comedy', 'drama', 109, 'uk', 'hathaway', 6.9).
 movie('Dilwale Dulhania Le Jayenge', 1995, 'romance', 'others', 189, 'india', 'khan', 8.1).
 movie('Scream', 1996, 'horror', 'mystery', 101, 'uk', 'campbell', 7.3).
-movie('Grease', 1978, 'musical', 'others', 110, 'uk', 'travolta', 7.2).
+movie('Grease', 1978, 'music', 'others', 110, 'uk', 'travolta', 7.2).
 
 movie('Lost In Translation', 2003, 'comedy', 'drama', 102, 'uk', 'murray', 7.7).
 movie('Rebel Without a Cause', 1955, 'drama', 'others', 111, 'usa', 'dean', 7.7).
@@ -80,6 +80,9 @@ start(MovieName) :-
 				write('* romance'),nl,
 				write('* thriller'),nl,
 				write('* adventure'),nl,
+				write('* music'),nl,
+				write('* scifi'),nl,
+				write('* crime'),nl,
 				write('* others'),nl,		
 				write('Type prefered genre: '),
 				read(Genre),nl,
@@ -91,6 +94,8 @@ start(MovieName) :-
 				write('* 1980'),nl,
 				write('* 1970'),nl,
 				write('* 1960'),nl,
+				write('* 1950'),nl,
+				write('* 1940'),nl,
 				write('* skip'),nl,
 				write('Type selected year: '),
         read(Age),nl,
@@ -125,24 +130,27 @@ start(MovieName) :-
 			read(Rate),nl,(search(MovieName,Decade,Genre,Duration,Rate,Country,Actor); 
 
 					write('No such movie found in our database. Please reduce one of your preferences.'),nl,
-						write('What can we neglect? (1-3) '),nl,nl,
+						write('What is not that important to you? (1-3) '),nl,nl,
 						write('1. decade'),nl,write('2. duration'),nl,write('3. imdb'),nl,nl,
 						write('Type 1-3: '),
-						read(Ignore1),nl,(Ignore1 == 1 -> searchWoYear(MovieName,Genre,Duration,Rate,Country,Actor);
-												    (Ignore1 == 2 -> searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor); 
-												    searchWoImdb(MovieName,Decade,Genre,Duration,Country,Actor))); 
-														write('What else can we neglect? (1-6) '),nl,nl,
-														write('1. decade, country'),nl,write('2. decade, actor'),nl,
-														write('3. duration, country'),nl,write('4. duration, actor'),nl,
-														write('5. imdb, country'),nl,	write('6. imdb, actor'),nl,nl,
-														write('Type 1-6: '),
-														read(Ignore2),nl,(Ignore2 == 1 -> searchWoYearCountry(MovieName,Genre,Duration,Rate,Actor);
-														                Ignore2 == 2 -> searchWoYearActor(MovieName,Genre,Duration,Rate,Country);
-																						Ignore2 == 3 -> searchWoDurationCountry(MovieName,Decade,Genre,Rate,Actor);
-														                Ignore2 == 4 -> searchWoDurationActor(MovieName,Decade,Genre,Rate,Country);
-																						(Ignore2 == 5 -> searchWoImdbCountry(MovieName,Decade,Genre,Duration,Actor);
-																						searchWoImdbActor(MovieName,Decade,Genre,Duration,Country))); 
-																						nl,defaultSelected(MovieName,Genre)),
+						read(Ignore1),nl,(Ignore1 == 1 -> (searchWoYear(MovieName,Genre,Duration,Rate,Country,Actor);
+																								write('What else is not that important? (1-2) '),nl,nl,
+																								write('1. country'),nl,write('2. actor'),nl,read(Ignore2),nl,
+																								(Ignore2 == 1 -> searchWoYearCountry(MovieName,Genre,Duration,Rate,Actor);
+														                		searchWoYearActor(MovieName,Genre,Duration,Rate,Country)));
+												    (Ignore1 == 2 -> (searchWoDuration(MovieName,Decade,Genre,Rate,Country,Actor);
+																								write('What else is not that important? (1-2) '),nl,nl,
+																								write('1. country'),nl,write('2. actor'),nl,read(Ignore2),nl,
+																								(Ignore2 == 1 -> searchWoDurationCountry(MovieName,Decade,Genre,Rate,Actor);
+																								searchWoDurationActor(MovieName,Decade,Genre,Rate,Country))); 
+														(searchWoImdb(MovieName,Decade,Genre,Duration,Country,Actor);
+															write('What else is not that important? (1-2) '),nl,nl,
+															write('1. country'),nl,write('2. actor'),nl,read(Ignore2),nl,
+															(Ignore2 == 1 -> searchWoImdbCountry(MovieName,Decade,Genre,Duration,Actor);
+															searchWoImdbActor(MovieName,Decade,Genre,Duration,Country)))
+														));
+
+														defaultSelected(MovieName,Genre)),
 
 			write('Thank you for participation! Best movie for you has been found!').
 
@@ -154,9 +162,9 @@ country(MovieName,Country):- movie(MovieName,_,_,_,_,Country,_,_).
 year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year < Y, Year1 is Year + 10, Y < Year1.
 genre(MovieName,Genre):- movie(MovieName,_,G1,G2,_,_,_,_), (G1 == Genre; G2 == Genre).
 
-duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 20 < Minutes, Minutes < 100.
-duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 100 < Minutes, Minutes < 170.
-duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 171 < Minutes.
+duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 5 < Minutes, Minutes < 100. % 1,5
+duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 99 < Minutes, Minutes < 170. % 2 
+duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 169 < Minutes. % 3+
 
 basedOnMood(2, 2, 'comedy, adventure, romance'). 
 basedOnMood(X, 1, 'drama, animation'):- (X == 2; X == 1). 
