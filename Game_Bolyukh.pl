@@ -52,6 +52,53 @@ movie('Some Like it Hot', 1959, 'music', 'comedy', 121, 'usa', 'monroe', 8.2).
 movie('1776', 1972, 'family', 'history', 141, 'uk', 'daniels', 7.6).
 
 
+movie('Promising Young Woman', 2020, 'crime', 'thriller', 141, 'uk', 'daniels', 7.6).
+movie('Dreamgirls', 2006, 'music', 'drama', 130, 'uk', 'beyonce', 6.5).
+movie('Set It Off', 1996, 'action', 'crime', 123, 'uk', 'smith', 6.9).
+movie('Somethings Gotta Give', 2003, 'comedy', 'drama', 128, 'uk', 'nicholson', 6.7).
+movie('Casino Royale', 2006, 'action', 'thriller', 144, 'uk', 'craig', 8.0).
+movie('Bridesmaids', 2011, 'comedy', 'romance', 125, 'uk', 'wiig', 6.8).
+movie('Minari', 2020, 'drama', 'others', 115, 'uk', 'yeun', 7.6).
+movie('Summer of Soul (...Or, When the Revolution Could Not Be Televised)', 2021, 'documentary', 'others', 117, 'usa', 'miranda', 8.1).
+movie('Free Solo', 2018, 'documentary', 'sport', 100, 'uk', 'honnold', 8.2).
+movie('Paris is Burning', 1990, 'documentary', 'others', 71, 'uk', 'xtravaganza', 8.2).
+
+
+movie('Sound and Fury', 2000, 'documentary', 'others', 80, 'usa', 'allen', 7.9).
+movie('Koyaanisqatsi', 1982, 'documentary', 'music', 141, 'france', 'asner', 8.3).
+movie('Harlan County, U.S.A.', 1976, 'documentary', 'others', 103, 'france', 'daniels', 8.3).
+movie('Edward Scissorhands', 1990, 'fantasy', 'drama', 105, 'uk', 'depp', 7.9).
+movie('Jumanji', 2019, 'fantasy', 'adventure', 123, 'uk', 'hart', 6.6).
+movie('The Lord of the Rings: The Two Towers', 2002, 'fantasy', 'adventure', 179, 'uk', 'wood', 8.7).
+movie('Harry Potter and the Philosophers Stone', 2001, 'family', 'fantasy', 152, 'uk', 'radcliffe', 7.6).
+movie('Alice in Wonderland', 1951, 'fantasy', 'animation', 75, 'uk', 'beaumont', 7.4).
+movie('The Shape of Water', 2017, 'adventure', 'fantasy', 123, 'uk', 'hawkins', 7.3).
+movie('Mary Poppins', 1964, 'family', 'fantasy', 139, 'uk', 'dyke', 7.8).
+
+movie('The Chronicles of Narnia: The Lion, the Witch and the Wardrobe', 2005, 'adventure', 'fantasy', 143, 'uk', 'swinton', 6.9).
+movie('Where the Wild Things Are', 2009, 'adventure', 'family', 101, 'france', 'asner', 8.3).
+movie('Harlan County, U.S.A.', 1976, 'documentary', 'others', 103, 'uk', 'records', 6.7).
+movie('Big FIsh', 2003, 'fantasy', 'drama', 125, 'uk', 'mcgregor', 8.0).
+movie('Fantasia', 1940, 'animation', 'family', 125, 'uk', 'stokowski', 7.7).
+movie('Inside Out', 2015, 'animation', 'adventure', 95, 'uk', 'poehler', 8.1).
+movie('Loving Vincent', 2017, 'animation', 'biography', 94, 'uk', 'booth', 7.8).
+movie('Your Name', 2016, 'fantasy', 'animation', 106, 'uk', 'kamiki', 8.4).
+movie('The Iron Giant', 1999, 'animation', 'action', 86, 'uk', 'aniston', 8.0).
+movie('My Neighbor Totoro', 1988, 'animation', 'family', 86, 'uk', 'takagi', 8.2).
+
+
+movie('Mulan', 2020, 'action', 'adventure', 115, 'uk', 'liu', 5.6).
+movie('Birds of Prey', 2020, 'action', 'comedy', 109, 'uk', 'robbie', 6.1).
+movie('The Broken Hearts Gallery', 2020, 'comedy', 'romance', 109, 'uk', 'montgomery', 6.2).
+movie('Host', 2020, 'horror', 'mystery', 57, 'uk', 'bishop', 6.6).
+movie('Athlete A', 2020, 'documentary', 'sport', 103, 'uk', 'nichols', 7.6).
+movie('The Vigil', 2021, 'horror', 'mystery', 89, 'uk', 'davis', 5.6).
+movie('The Dig', 2021, 'biography', 'history', 112, 'uk', 'fiennes', 7.1).
+movie('Quo vadis, Aida?', 2021, 'drama', 'history', 101, 'netherlands', 'bajrovic', 7.5).
+movie('About Endlessness', 2021, 'drama', 'fantasy', 78, 'sweden', 'bergius', 6.9).
+movie('MLK/FBI', 2021, 'documentary', 'others', 104, 'uk', 'king', 6.9).
+
+
 start(MovieName) :-	
       write('This test will help you to find the best movie to watch.'),nl,
                 write('Kindly answer the questions below.'),nl,nl,
@@ -80,14 +127,19 @@ start(MovieName) :-
 				write('* romance'),nl,
 				write('* thriller'),nl,
 				write('* adventure'),nl,
+				write('* biography'),nl, 
+				write('* mystery'),nl,
 				write('* music'),nl,
 				write('* scifi'),nl,
+				write('* sport'),nl,
 				write('* crime'),nl,
+				write('* documentary'),nl,
 				write('* others'),nl,		
 				write('Type prefered genre: '),
 				read(Genre),nl,
 				
 	      write('What decade do you prefer?'),nl,
+				write('* 2020'),nl,
 				write('* 2010'),nl,
 				write('* 2000'),nl,
 				write('* 1990'),nl,
@@ -121,6 +173,8 @@ start(MovieName) :-
 				write('* usa'),nl,
 				write('* japan'),nl,
 				write('* france'),nl,
+				write('* sweden'),nl,
+				write('* netherlands'),nl,
 				write('* uk'),nl,
 				write('* skip'),nl,
 				write('Type prefered country: '),
@@ -166,12 +220,13 @@ duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 5 < Minutes, Min
 duration(MovieName,'m'):- movie(MovieName,_,_,_,Minutes,_,_,_), 99 < Minutes, Minutes < 170. % 2 
 duration(MovieName,'l'):- movie(MovieName,_,_,_,Minutes,_,_,_), 169 < Minutes. % 3+
 
+% 1 - sad; 2 - happy; 3 - angry; 4 - normal
 basedOnMood(2, 2, 'comedy, adventure, romance'). 
 basedOnMood(X, 1, 'drama, animation'):- (X == 2; X == 1). 
-basedOnMood(X, 3, 'horror, thriller'):- (X == 2; X == 1). 
-basedOnMood(2, 4, 'adventure, romance').
+basedOnMood(X, 3, 'horror, thriller, crime'):- (X == 2; X == 1). 
+basedOnMood(2, 4, 'adventure, romance, mystery').
 basedOnMood(1, 2, 'comedy, adventure, thriller').
-basedOnMood(1, 4, 'adventure, animation, thriller').
+basedOnMood(1, 4, 'adventure, animation, thriller, mystery').
 
 search(MovieName,Decade,Genre,Hours,Rate,Country,Actor):-
 				(Decade == 1; year(MovieName,Decade)),
