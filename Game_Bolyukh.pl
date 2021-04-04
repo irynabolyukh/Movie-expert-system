@@ -51,7 +51,6 @@ movie('2001: A Space Odyssey', 1968, 'adventure', 'scifi', 149, 'uk', 'lockwood'
 movie('Some Like it Hot', 1959, 'music', 'comedy', 121, 'usa', 'monroe', 8.2).
 movie('1776', 1972, 'family', 'history', 141, 'uk', 'daniels', 7.6).
 
-
 movie('Promising Young Woman', 2020, 'crime', 'thriller', 141, 'uk', 'daniels', 7.6).
 movie('Dreamgirls', 2006, 'music', 'drama', 130, 'uk', 'beyonce', 6.5).
 movie('Set It Off', 1996, 'action', 'crime', 123, 'uk', 'smith', 6.9).
@@ -62,7 +61,6 @@ movie('Minari', 2020, 'drama', 'others', 115, 'uk', 'yeun', 7.6).
 movie('Summer of Soul (...Or, When the Revolution Could Not Be Televised)', 2021, 'documentary', 'others', 117, 'usa', 'miranda', 8.1).
 movie('Free Solo', 2018, 'documentary', 'sport', 100, 'uk', 'honnold', 8.2).
 movie('Paris is Burning', 1990, 'documentary', 'others', 71, 'uk', 'xtravaganza', 8.2).
-
 
 movie('Sound and Fury', 2000, 'documentary', 'others', 80, 'usa', 'allen', 7.9).
 movie('Koyaanisqatsi', 1982, 'documentary', 'music', 141, 'france', 'asner', 8.3).
@@ -86,7 +84,6 @@ movie('Your Name', 2016, 'fantasy', 'animation', 106, 'uk', 'kamiki', 8.4).
 movie('The Iron Giant', 1999, 'animation', 'action', 86, 'uk', 'aniston', 8.0).
 movie('My Neighbor Totoro', 1988, 'animation', 'family', 86, 'uk', 'takagi', 8.2).
 
-
 movie('Mulan', 2020, 'action', 'adventure', 115, 'uk', 'liu', 5.6).
 movie('Birds of Prey', 2020, 'action', 'comedy', 109, 'uk', 'robbie', 6.1).
 movie('The Broken Hearts Gallery', 2020, 'comedy', 'romance', 109, 'uk', 'montgomery', 6.2).
@@ -97,6 +94,17 @@ movie('The Dig', 2021, 'biography', 'history', 112, 'uk', 'fiennes', 7.1).
 movie('Quo vadis, Aida?', 2021, 'drama', 'history', 101, 'netherlands', 'bajrovic', 7.5).
 movie('About Endlessness', 2021, 'drama', 'fantasy', 78, 'sweden', 'bergius', 6.9).
 movie('MLK/FBI', 2021, 'documentary', 'others', 104, 'uk', 'king', 6.9).
+
+movie('Hoop Dreams', 1994, 'documentary', 'sport', 170, 'uk', 'gates', 8.3).
+movie('Foxcatcher', 2014, 'sport', 'biography', 134, 'uk', 'carell', 7.0).
+movie('The Wrestler', 2008, 'sport', 'drama', 109, 'uk', 'rourke', 7.9).
+movie('Slap Shot', 1977, 'sport', 'comedy', 123, 'usa', 'newman', 7.3).
+movie('Knives Out', 2019, 'mystery', 'comedy', 130, 'uk', 'craig', 7.9).
+movie('Enola Holmes', 2020, 'action', 'adventure', 123, 'uk', 'claflin', 6.6).
+movie('Blade Runner', 1982, 'scifi', 'action', 117, 'uk', 'ford', 8.1).
+movie('Inception', 2010, 'scifi', 'adventure', 148, 'uk', 'dicaprio', 8.8).
+movie('Close Encounters Of The Third Kind', 1977, 'scifi', 'drama', 138, 'uk', 'dreufuss', 7.6).
+movie('Planet Of The Apes', 1968, 'scifi', 'adventure', 112, 'uk', 'heston', 8.0).
 
 
 start(MovieName) :-	
