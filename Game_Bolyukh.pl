@@ -218,10 +218,10 @@ start(MovieName) :-
 
 
 
-imdb(MovieName,Rating):- movie(MovieName,_,_,_,_,_,_,R), Rating < R.
+imdb(MovieName,Rating):- movie(MovieName,_,_,_,_,_,_,R), (Rating < R; Rating == R).
 actor(MovieName,Actor):- movie(MovieName,_,_,_,_,_,Actor,_).
 country(MovieName,Country):- movie(MovieName,_,_,_,_,Country,_,_).
-year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), Year < Y, Year1 is Year + 10, Y < Year1.
+year(MovieName,Year):- movie(MovieName,Y,_,_,_,_,_,_), (Year < Y; Year == Y), Year1 is Year + 10, Y < Year1.
 genre(MovieName,Genre):- movie(MovieName,_,G1,G2,_,_,_,_), (G1 == Genre; G2 == Genre).
 
 duration(MovieName,'s'):- movie(MovieName,_,_,_,Minutes,_,_,_), 5 < Minutes, Minutes < 100. % 1,5
